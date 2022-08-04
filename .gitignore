@@ -2,6 +2,7 @@ bin/
 # Local .terraform directories
 **/.terraform/*
 
+include/
 # .tfstate files
 *.tfstate
 *.tfstate.*

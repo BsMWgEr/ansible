@@ -1,0 +1,4 @@
+- name: Check for Running Images
+  shell: docker ps -aq >/dev/null 2>&1
+  register: containers_running
+  ignore_errors: yes

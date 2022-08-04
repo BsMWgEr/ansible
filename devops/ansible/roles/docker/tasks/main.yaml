@@ -1,0 +1,18 @@
+- name: Grab Docker Install Script
+  get_url:
+    url: https://get.docker.com
+    dest: /tmp/get-docker.sh
+    mode: 0755
+  notify: Exec Docker Install Script
+
+- name: Verify Docker Command
+  shell: command -v docker >/dev/null 2>&1
+  ignore_errors: yes
+  register: docker_exists
+
+- debug: msg="{{ docker_exists }}"
+
+- name: Trigger docker install script != running
+  shell: echo "Docker command"
+  when: docker_exists.rc != 0
+  notify: Exec Docker Install Script

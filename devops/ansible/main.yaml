@@ -1,0 +1,10 @@
+---
+- name: Update Webapps
+  import_playbook: ./playbooks/webapps.yaml
+
+
+
+- name: Configure Loadbalancer
+  import_playbook: ./playbooks/loadbalancer.yaml
+
+
